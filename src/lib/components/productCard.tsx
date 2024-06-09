@@ -6,12 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import useCart from "../hooks/useCartHook";
+import { useContext } from "react";
+import { CartContext } from "../contexts/cartContext";
 type ProductCardProps = {
     id:number,
     title:string,
     category:string,
     price:number,
-    discountPercentage?:string,
+    discountPercentage?:number,
     rating:number,
     stock?:number,
     thumbnail:string
@@ -27,7 +30,9 @@ export default function ProductCard({
     thumbnail 
 }:ProductCardProps){
 
+    const {addToCart} = useCart();
     const handleAddToCart = ()=>{
+        addToCart(id);
         toast.success(`Item (${title}) was added into cart.`);
     };
 

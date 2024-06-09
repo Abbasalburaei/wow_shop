@@ -4,7 +4,7 @@ export type ProductProps = {
     description?:string,
     category:string,
     price:number,
-    discountPercentage?:string,
+    discountPercentage?:number,
     rating:number,
     stock?:number,
     brand:string,

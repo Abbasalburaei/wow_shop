@@ -1,2 +1,3 @@
 import { createContext } from "react";
-export const CartContext = createContext(null);
+import { CartHookProps} from "../types/cartPros";
+export const CartContext = createContext<CartHookProps>({itemsCount : 0});
